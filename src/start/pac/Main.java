@@ -1,43 +1,32 @@
 package start.pac;
 
-import by.epam.array.action.average.Average;
+import by.epam.array.action.simplemath.MathArrayAction;
 import by.epam.array.action.changeelem.NegativElemsToPositive;
-import by.epam.array.action.minmax.Max;
-import by.epam.array.action.minmax.Min;
 import by.epam.array.action.poselems.PositiveElems;
-import by.epam.array.action.sum.Sum;
-import by.epam.array.entity.MyArray;
+import by.epam.array.creator.CustomArrayCreator;
+import by.epam.array.entity.CustomArray;
 
+import by.epam.array.exception.ArrayException;
+import by.epam.array.sortmethods.CustomArraySort;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.apache.log4j.spi.LoggerFactory;
+
+import java.io.IOException;
 
 
 public class Main {
 
-    //private final static Logger logger = LogManager.getLogger("Main");
+    private final static Logger logger = LogManager.getLogger("Main");
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ArrayException{
 
-        //logger.info("This info to the left is red");
 
-        int[] arr = new int[5];
-        for(int i = 0; i < arr.length; i ++){
-            arr[i] = i-1;
-        }
-        MyArray a = new MyArray(arr);
+        int[] arr = new int[]{2,3,1,5,4};
+        CustomArray a = new CustomArray(arr);
 
-        Sum total = new Sum();
-        int summa = total.sum(a);
-
-        Average avge = new Average();
+        MathArrayAction avge = new MathArrayAction();
         double average = avge.avg(a);
-
-        Min min = new Min();
-        int m = min.min(a);
-
-        Max max = new Max();
-        int maximum = max.max(a);
+        int max = avge.max(a);
 
         PositiveElems pEl = new PositiveElems();
         int ret = pEl.amountOfPosElems(a);
@@ -45,7 +34,15 @@ public class Main {
         NegativElemsToPositive test = new NegativElemsToPositive();
         test.changeElem(a);
 
-        for(int i = 0; i < 5; i++)
-            System.out.println(a.getElement(i));
+        CustomArraySort sorted = new CustomArraySort();
+        sorted.bubbleSort(a);
+        sorted.selectionSort(a);
+        sorted.quickSort(a,0,a.getArrSize()-1);
+
+        CustomArrayCreator creator = new CustomArrayCreator();
+        creator.fromFile();
+
+        System.out.println(a);
+
     }
 }

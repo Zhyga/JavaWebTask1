@@ -1,9 +1,9 @@
 package by.epam.array.action.changeelem;
 
-import by.epam.array.entity.MyArray;
+import by.epam.array.entity.CustomArray;
 
 public class NegativElemsToPositive {
-    public void changeElem(MyArray a){
+    public void changeElem(CustomArray a){
         int size = a.getArrSize();
         for(int i = 0; i < size; i++){
             if(a.getElement(i) < 0){

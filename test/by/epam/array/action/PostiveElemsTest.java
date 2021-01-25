@@ -1,6 +1,6 @@
-package by.epam.array.test;
+package by.epam.array.action;
 
-import by.epam.array.entity.MyArray;
+import by.epam.array.entity.CustomArray;
 import by.epam.array.action.poselems.PositiveElems;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,10 +9,10 @@ public class PostiveElemsTest {
 
     PositiveElems pEl = new PositiveElems();
     int[] a = new int[]{1,2,3,4,5};
-    MyArray arr = new MyArray(a);
+    CustomArray arr = new CustomArray(a);
 
     int[] a2 = new int[]{-1,2,-3,0,5};
-    MyArray arr2 = new MyArray(a2);
+    CustomArray arr2 = new CustomArray(a2);
 
 
     @Test
