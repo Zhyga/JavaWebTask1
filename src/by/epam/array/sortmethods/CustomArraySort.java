@@ -4,16 +4,9 @@ import by.epam.array.entity.CustomArray;
 
 public class CustomArraySort {
 
-    private void swap(CustomArray array, int index1, int index2) {
-        int tmp = array.getElement(index1);
-        int tmp2 = array.getElement(index2);
-        array.setElement(index1,tmp2);
-        array.setElement(index2,tmp);
-    }
-
     public void bubbleSort(CustomArray array) {
-        for(int i = 0; i < array.getArrSize()-1; i++){
-            for(int j = i+1; j < array.getArrSize(); j++){
+        for(int i = 0; i < array.length()-1; i++){
+            for(int j = i+1; j < array.length(); j++){
                 int firstValue = array.getElement(i);
                 int secondValue = array.getElement(j);
                 if(secondValue < firstValue){
@@ -24,19 +17,8 @@ public class CustomArraySort {
         }
     }
 
-    private int minIndex(CustomArray array,int startPos)  {
-        int minIndex = startPos;
-        int minValue = array.getElement(startPos);
-        for (int i = startPos + 1; i < array.getArrSize(); i++){
-            if(array.getElement(i) < minValue) {
-                minIndex = i;
-            }
-        }
-        return minIndex;
-    }
-
     public void selectionSort(CustomArray array) {
-        for(int i = 0; i < array.getArrSize(); i++){
+        for(int i = 0; i < array.length(); i++){
             int index = minIndex(array,i);
             swap(array,i,index);
         }
@@ -68,6 +50,25 @@ public class CustomArraySort {
             }
         }
         return leftIndex;
+    }
+
+    private void swap(CustomArray array, int index1, int index2) {
+        int tmp = array.getElement(index1);
+        int tmp2 = array.getElement(index2);
+        array.setElement(index1,tmp2);
+        array.setElement(index2,tmp);
+    }
+
+    private int minIndex(CustomArray array,int startPos)  {
+        int [] arr = array.getArray();
+        int minIndex = startPos;
+        int minValue = array.getElement(startPos);
+        for (int i = startPos + 1; i < array.length(); i++){
+            if(array.getElement(i) < minValue) {
+                minIndex = i;
+            }
+        }
+        return minIndex;
     }
 
 }

@@ -1,27 +1,33 @@
 package by.epam.array.action;
 
 import by.epam.array.entity.CustomArray;
-import by.epam.array.action.poselems.PositiveElems;
+import by.epam.array.action.poselems.PositiveElemsStream;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class PostiveElemsTest {
 
-    PositiveElems pEl = new PositiveElems();
-    int[] a = new int[]{1,2,3,4,5};
-    CustomArray arr = new CustomArray(a);
+    CustomArray customArray;
+    PositiveElemsStream func;
 
-    int[] a2 = new int[]{-1,2,-3,0,5};
-    CustomArray arr2 = new CustomArray(a2);
-
-
-    @Test
-    public void testAmount() throws Exception{
-        Assert.assertEquals(5, pEl.amountOfPosElems(arr));
+    @BeforeClass
+    public void setUp() {
+        func = new PositiveElemsStream();
+        customArray = new CustomArray();
     }
 
-    @Test
-    public void testAmount2() throws Exception{
-        Assert.assertEquals(2,pEl.amountOfPosElems(arr2));
+    @Test(dataProvider = "dataArray")
+    public void testAmount(int[] array, int expectedValue) throws Exception{
+        customArray = CustomArray.createArray(array);
+        int actualValue = func.amountOfPosElems(customArray);
+        Assert.assertEquals(actualValue, expectedValue);
+    }
+
+    @DataProvider(name = "dataArray")
+    public Object[] createData(){
+        return new Object[][] { { new int[] {-30,12,25,-765,123}, 3},
+                { new int[] { -10,12,-6456,2 },  2 }};
     }
 }
