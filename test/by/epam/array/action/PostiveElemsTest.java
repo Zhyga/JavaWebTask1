@@ -19,8 +19,8 @@ public class PostiveElemsTest {
     }
 
     @Test(dataProvider = "dataArray")
-    public void testAmount(int[] array, int expectedValue) throws Exception{
-        customArray = CustomArray.createArray(array);
+    public void testAmount(int[] array, int expectedValue){
+        customArray.setArray(array);
         int actualValue = func.amountOfPosElems(customArray);
         Assert.assertEquals(actualValue, expectedValue);
     }

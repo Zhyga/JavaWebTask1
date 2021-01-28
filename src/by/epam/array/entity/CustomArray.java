@@ -33,21 +33,8 @@ public class CustomArray {
             arr[i] = value;
     }
 
-//    public static CustomArray createArray(String line) throws ArrayException {
-//        String strings[] = line.split(" ");
-//        CustomArray array  = new CustomArray(strings.length);
-//        for(int i = 0; i < array.length(); i++){
-//            array.setElement(i,Integer.parseInt(strings[i]));
-//        }
-//        return array;
-//    }
-
-    public static CustomArray createArray(int[] values) throws ArrayException {
-        CustomArray array = new CustomArray(values.length);
-        for(int i = 0; i < array.length(); i++){
-            array.setElement(i,values[i]);
-        }
-        return array;
+    public void setArray(int[] values){
+        arr = values;
     }
 
     @Override

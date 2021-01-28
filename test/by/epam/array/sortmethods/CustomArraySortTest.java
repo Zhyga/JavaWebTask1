@@ -19,24 +19,24 @@ public class CustomArraySortTest {
     }
 
     @Test(dataProvider = "dataArray")
-    public void testBubbleSort(int[] array, int[] expectedValue) throws ArrayException {
-        customArray = CustomArray.createArray(array);
+    public void testBubbleSort(int[] array, int[] expectedValue){
+        customArray.setArray(array);
         customArraySort.bubbleSort(customArray);
         int[] actualValue = customArray.getArray();
         Assert.assertEquals(actualValue,expectedValue);
     }
 
     @Test(dataProvider = "dataArray")
-    public void testQuickSort(int[] array, int[] expectedValue) throws ArrayException {
-        customArray = CustomArray.createArray(array);
+    public void testQuickSort(int[] array, int[] expectedValue){
+        customArray.setArray(array);
         customArraySort.quickSort(customArray,0,customArray.length()-1);
         int[] actualValue = customArray.getArray();
         Assert.assertEquals(actualValue,expectedValue);
     }
 
     @Test(dataProvider = "dataArray")
-    public void testSelectionSort(int[] array, int[] expectedValue) throws ArrayException {
-        customArray = CustomArray.createArray(array);
+    public void testSelectionSort(int[] array, int[] expectedValue){
+        customArray.setArray(array);
         customArraySort.selectionSort(customArray);
         int[] actualValue = customArray.getArray();
         Assert.assertEquals(actualValue,expectedValue);

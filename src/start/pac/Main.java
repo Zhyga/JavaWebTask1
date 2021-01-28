@@ -39,7 +39,7 @@ public class Main {
 
         CustomArrayReader creator = new CustomArrayReader();
         a = creator.fromFile("C:\\Users\\user\\IdeaProjects\\MyArray\\textFile.txt");
-        a = CustomArray.createArray(new int[]{2, 74, 2});
+        a.setArray(new int[]{2, 74, 2});
 
         logger.info("Array:" + a);
 

@@ -28,12 +28,12 @@ public class CustomArrayReader {
                     String line = scanner.next();
                     if (Validation.lineIsNumeric(line)) {
                         int[] values = strArrayToInt(line);
-                        array = CustomArray.createArray(values);
+                        array.setArray(values);
                         break;
                     }
                 }
 
-            } catch (IOException | ArrayException e) {
+            } catch (IOException e) {
                 throw new ArrayException();
             } finally {
                 scanner.close();

@@ -20,29 +20,29 @@ public class MathArrayActionTest {
     }
 
     @Test(dataProvider = "arrays_avg")
-    public void testAvgCorrect(int[] array, double expectedValue) throws ArrayException {
-            customArray = CustomArray.createArray(array);
+    public void testAvgCorrect(int[] array, double expectedValue) {
+            customArray.setArray(array);
             double actualValue = mathAction.avg(customArray);
             Assert.assertEquals(actualValue,expectedValue);
     }
 
     @Test(dataProvider = "arrays_min")
-    public void testMinCorrect(int[] array, int expectedValue) throws ArrayException {
-        customArray = CustomArray.createArray(array);
+    public void testMinCorrect(int[] array, int expectedValue){
+        customArray.setArray(array);
         int actualValue = mathAction.min(customArray);
         Assert.assertEquals(actualValue,expectedValue);
     }
 
     @Test(dataProvider = "arrays_max")
-    public void testMaxCorrect(int[] array, int expectedValue) throws ArrayException {
-        customArray = CustomArray.createArray(array);
+    public void testMaxCorrect(int[] array, int expectedValue){
+        customArray.setArray(array);
         int actualValue = mathAction.max(customArray);
         Assert.assertEquals(actualValue,expectedValue);
     }
 
     @Test(dataProvider = "arrays_sum")
-    public void testSumCorrect(int[] array, int expectedValue) throws ArrayException {
-        customArray = CustomArray.createArray(array);
+    public void testSumCorrect(int[] array, int expectedValue){
+        customArray.setArray(array);
         int actualValue = mathAction.sum(customArray);
         Assert.assertEquals(actualValue,expectedValue);
     }
